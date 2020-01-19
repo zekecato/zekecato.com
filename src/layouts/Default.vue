@@ -2,19 +2,41 @@
   <div>
     
     <div class="container-fluid">
-      <b-navbar>
-        <b-navbar-brand>
-          <g-link to="/">Zeke Cato Enterprise</g-link>
-        </b-navbar-brand>
-        <div id>
-          <font-awesome :icon="['fab','linkedin']" />
+        
+      <div class="header row">
+        
+        <div class="col-6 col-sm-10">
+          <g-link id="logomain" to="/">
+            <h1> Zeke Cato Enterprise </h1>
+          </g-link>
         </div>
-        <b-navbar-nav class="ml-auto">
+
+        <div class="col-6 col-sm-10">
+          <p class="text-muted">
+            IT Consulting — Math, science, and technology tutoring — Sensitively Simple natural body care
+          </p>
+        </div>
+
+      </div>
+
+      <b-navbar id="navbar" class="row">
+        <b-navbar-nav id="navlinks">
             <b-nav-item><g-link to="/about/">About</g-link></b-nav-item>
             <b-nav-item><g-link to="/it-consulting/">IT Consulting</g-link></b-nav-item>
         </b-navbar-nav>
+
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item href="https://www.linkedin.com/in/roy-zeke-schultz-cato-8665a453/">
+            <font-awesome :icon="['fab','linkedin']" size="lg"/>
+          </b-nav-item>
+          <b-nav-item href="mailto:zeke@zekecato.com">
+            <font-awesome :icon="['fas','envelope']" size="lg" />
+          </b-nav-item>
+        </b-navbar-nav>
       </b-navbar>
+
     </div>
+
     <div class="container">
       <slot/>
     </div>
@@ -23,26 +45,24 @@
 </template>
 
 <style>
-body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+
+.header {
+  padding-top: 10px;
+  align-items: auto;
 }
 
-nav[role="navigation"] {
-  text-align: center;
+#logomain {
+  text-decoration: none;
+  color: black;
 }
 
-
-.layout {
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+#navbar {
+  background-color: black;
 }
-
-.post-list {
-  list-style: none;
-  padding-left: 0;
+#navlinks {
+  color: white;
 }
-.post-list li {
-  padding: 1em 0;
+svg {
+  color: white;
 }
 </style>
