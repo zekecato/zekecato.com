@@ -1,6 +1,5 @@
 import BootstrapVue from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import '~/global.scss'
 
 //Font Awesome icons
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
