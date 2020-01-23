@@ -31,6 +31,6 @@ export default function (Vue) {
     defaultIconPack: 'fas'
   })
 
-  Vue.component('font-awesome', FontAwesomeIcon)
+  Vue.component('vue-fontawesome', FontAwesomeIcon)
   Vue.component('Layout', DefaultLayout)
 }

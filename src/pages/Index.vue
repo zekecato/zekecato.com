@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <b-img :src="$page.data.featuredMedia.sourceUrl" :alt="$page.data.featuredMedia.altText" fluid></b-img>
+    <img :src="$page.data.featuredMedia.sourceUrl" :alt="$page.data.featuredMedia.altText" fluid/>
     <h1>{{$page.data.title}}</h1>
     <div v-html="$page.data.content"></div>
   </Layout>
