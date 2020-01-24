@@ -6,7 +6,7 @@
                     <div>
                         IT Consulting
                     </div>
-                    <div>:</div>
+                    <div class="hidden sm:flex">:</div>
                     <div>
                         Math, science, and technology tutoring
                     </div>
@@ -19,14 +19,35 @@
                 <a href="mailto:zeke@zekecato.com" 
                    id="envelope" 
                    class="p-1"
-                   content="zeke@zekecato.com"
-                   v-tippy>
+                   content="<span style='user-select:all;'>zeke@zekecato.com</span>"
+                   v-tippy="{
+                       placement: 'left',
+                       arrow: true,
+                       distance: 5,
+                       animation: 'shift-toward',
+                       theme: 'dark',
+                       interactive: true,
+                       appendTo: 'parent',
+                       flipBehavior: ['left','bottom'],
+                   }">
                     <fontawesome :icon="['fas','envelope']" size='2x' />
                 </a>
                 <a href="https://www.linkedin.com/in/roy-zeke-schultz-cato-8665a453/" 
                    id="linkedin" 
                    class="p-1">
-                    <fontawesome :icon="['fab','linkedin']" size='2x' />
+                    <div content="Check out my LinkedIn profile..."
+                       v-tippy="{
+                       placement: 'right',
+                       arrow: true,
+                       distance: 10,
+                       animation: 'shift-toward',
+                       theme: 'dark',
+                       interactive: true,
+                       appendTo: 'parent',
+                       flipBehavior: ['right','left','bottom'],
+                    }"> 
+                        <fontawesome :icon="['fab','linkedin']" size='2x' />
+                    </div>
                 </a>
             </div>
         </div>    
@@ -48,4 +69,5 @@ export default {
             font-size: 1.1rem;
         }
     }
+
 </style>
