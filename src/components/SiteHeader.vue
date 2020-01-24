@@ -18,7 +18,9 @@
             <div class="flex flex-row justify-center items-center sm:flex-col">
                 <a href="mailto:zeke@zekecato.com" 
                    id="envelope" 
-                   class="p-1">
+                   class="p-1"
+                   content="zeke@zekecato.com"
+                   v-tippy>
                     <fontawesome :icon="['fas','envelope']" size='2x' />
                 </a>
                 <a href="https://www.linkedin.com/in/roy-zeke-schultz-cato-8665a453/" 
