@@ -1,9 +1,14 @@
 <template>
-    <nav class="bg-black h-10 ">
-        <ul class="flex text-white ">
-            <li class="p-1" v-for="{ node } in $static.navLinks.edges" :key="node.id">
+    <nav class="bg-black h-12 ">
+        <ul class="flex pt-2 px-3 navlinks">
+            <li>
+                <g-link class="antilink" to="/">
+                    <span class="navlinktext">Home</span>
+                </g-link>
+            </li>
+            <li v-for="{ node } in $static.navLinks.edges" :key="node.id">
                 <g-link class="antilink" :to="node.slug">
-                    <span class="text-white">{{ node.title }}</span>
+                    <span class="navlinktext">{{ node.title }}</span>
                 </g-link>
             </li>
         </ul>
@@ -29,3 +34,13 @@ export default {
   
 }
 </script>
+
+<style scoped>
+    .navlinks>li {
+        @apply pr-4 py-1 
+    }
+
+    .navlinktext {
+        @apply text-white 
+    }
+</style>

@@ -3,16 +3,14 @@
     <SiteHeader/>
     <SiteNav/>
 
-    <div>
-      <slot/>
-    </div>
+    <slot/>
 
   </div>
 </template>
 
 <style>
   h1 {
-    @apply text-3xl
+    @apply text-4xl
   }
 
   h2 {
@@ -37,7 +35,7 @@
   }
 
   .pagecontent {
-    @apply px-12
+    @apply px-12 pt-3
   }
 </style>
 
