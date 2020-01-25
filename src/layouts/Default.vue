@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <a href="#"></a>
+  <div class="flex flex-col justify-between min-h-screen">
     <SiteHeader/>
     <SiteNav/>
 
@@ -11,6 +10,10 @@
 </template>
 
 <style>
+  body {
+    @apply bg-gray-300
+  }
+
   h1 {
     @apply text-4xl
   }
@@ -28,11 +31,11 @@
   }
 
   .featuredimage {
-    @apply py-4 px-8 bg-gray-300
+    @apply py-4 px-8
   }
 
   .pagecontent {
-    @apply px-12 pt-3
+    @apply mx-6 px-6 mt-2 py-2 bg-gray-100 flex-grow
   }
 </style>
 

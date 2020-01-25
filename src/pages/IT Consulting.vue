@@ -1,7 +1,10 @@
 <template>
   <Layout>
-    <b-img class="featuredimage" v-if="$page.data.featuredMedia" :src="$page.data.featuredMedia.sourceUrl" :alt="$page.data.featuredMedia.altText" fluid></b-img>
-    <div class="pagecontent" v-html="$page.data.content"></div>
+
+    <div class="flex flex-grow">
+      <b-img class="featuredimage" v-if="$page.data.featuredMedia" :src="$page.data.featuredMedia.sourceUrl" :alt="$page.data.featuredMedia.altText" fluid></b-img>
+      <div class="pagecontent" v-html="$page.data.content"></div>
+    </div>
   </Layout>
 </template>
 

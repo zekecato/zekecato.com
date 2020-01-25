@@ -1,7 +1,7 @@
 <template>
-        <div class="flex flex-col sm:flex-row px-3 sm:pb-3 justify-between h-auto">
+        <div class="flex flex-col sm:flex-row px-3 sm:pb-3 justify-between h-auto bg-gray-100">
             <div class="text-center sm:text-left sm:w-5/6 md:w-11/12">
-                <g-link tag="div" to="/" class="text-3xl sm:text-5xl font-semibold cursor-pointer px-1">
+                <g-link tag="div" to="/" class="w-1/2 text-3xl sm:text-5xl font-semibold cursor-pointer px-1">
                     Zeke Cato Enterprise
                 </g-link>
                 <div class="subtitleparent flex flex-wrap justify-center sm:justify-start -mt-2">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-row justify-center items-center sm:flex-col">
+            <div class="flex flex-row justify-center items-center sm:flex-col sm:mt-2">
                 <a href="mailto:zeke@zekecato.com" 
                    id="envelope" 
                    class="p-1 text-black"

@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav class="">
         <ul class="bg-black h-10 flex justify-center sm:justify-start items-center p-2 pl-4 sm:px-4">
             <g-link exact-active-class="focuslink" 
                     class="navlink" 
