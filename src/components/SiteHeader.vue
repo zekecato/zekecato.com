@@ -1,12 +1,14 @@
 <template>
-        <div class="flex flex-col sm:flex-row p-3 justify-between h-auto">
+        <div class="flex flex-col sm:flex-row px-3 sm:pb-3 justify-between h-auto">
             <div class="text-center sm:text-left sm:w-5/6 md:w-4/6">
-                <div class="text-3xl font-semibold px-1">Zeke Cato Enterprise</div>
-                <div class="subtitleparent flex flex-wrap justify-center sm:justify-start text-lg text-gray-700">
+                <g-link to="/" class="text-3xl sm:text-5xl font-semibold antilink px-1">
+                    <span class="">Zeke Cato Enterprise</span>
+                </g-link>
+                <div class="subtitleparent flex flex-wrap justify-center sm:justify-start -mt-2">
                     <div>
                         IT Consulting
                     </div>
-                    <div class="hidden sm:flex">:</div>
+                    <div>:</div>
                     <div>
                         Math, science, and technology tutoring
                     </div>
@@ -18,8 +20,8 @@
             <div class="flex flex-row justify-center items-center sm:flex-col">
                 <a href="mailto:zeke@zekecato.com" 
                    id="envelope" 
-                   class="p-1"
-                   content="<span style='user-select:all;'>zeke@zekecato.com</span>"
+                   class="p-1 antilink"
+                   content="<span style='user-select:all; font-weight:bold;'>zeke@zekecato.com</span>"
                    v-tippy="{
                        placement: 'left',
                        arrow: true,
@@ -34,7 +36,7 @@
                 </a>
                 <a href="https://www.linkedin.com/in/roy-zeke-schultz-cato-8665a453/" 
                    id="linkedin" 
-                   class="p-1">
+                   class="p-1 antilink">
                     <div content="Check out my LinkedIn profile..."
                        v-tippy="{
                        placement: 'right',
@@ -60,8 +62,9 @@ export default {
 </script>
     
 <style scoped>
+
     .subtitleparent>*{
-        @apply px-1
+        @apply px-1 text-base text-gray-600;
     }
 
     @media (min-width: 640px){
@@ -69,5 +72,7 @@ export default {
             font-size: 1.1rem;
         }
     }
+
+    
 
 </style>

@@ -1,11 +1,13 @@
 <template>
-  <Layout>
-    <h1>ZekeCato.com :)</h1>
-    <ul class="post-list">
-      <li v-for="{ node } in $page.allWordPressPost.edges" :key="node.id">
-        <Post :post="node" />
-      </li>
-    </ul>
+  <Layout class="">
+    <div class="pagecontent">
+      <h1>ZekeCato.com :)</h1>
+      <ul>
+        <li v-for="{ node } in $page.allWordPressPost.edges" :key="node.id">
+          <Post :post="node" />
+        </li>
+      </ul>
+    </div>
     <Pager :info="$page.allWordPressPost.pageInfo"/>
   </Layout>
 </template>

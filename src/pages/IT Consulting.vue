@@ -1,8 +1,7 @@
 <template>
   <Layout>
-    <b-img v-if="$page.data.featuredMedia" :src="$page.data.featuredMedia.sourceUrl" :alt="$page.data.featuredMedia.altText" fluid></b-img>
-    <h1>{{$page.data.title}}</h1>
-    <div v-html="$page.data.content"></div>
+    <b-img class="featuredimage" v-if="$page.data.featuredMedia" :src="$page.data.featuredMedia.sourceUrl" :alt="$page.data.featuredMedia.altText" fluid></b-img>
+    <div class="pagecontent" v-html="$page.data.content"></div>
   </Layout>
 </template>
 

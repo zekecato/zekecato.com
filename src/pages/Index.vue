@@ -1,14 +1,13 @@
 <template>
   <Layout>
-    <img :src="$page.data.featuredMedia.sourceUrl" :alt="$page.data.featuredMedia.altText" fluid/>
-    <h1>{{$page.data.title}}</h1>
-    <div v-html="$page.data.content"></div>
+    <img class="featuredimage" :src="$page.pageData.featuredMedia.sourceUrl" :alt="$page.pageData.featuredMedia.altText"/>
+    <div class="pagecontent" v-html="$page.pageData.content"></div>
   </Layout>
 </template>
 
 <page-query>
 query AboutPageData {
-  data: wordPressPage (id:54)  {
+  pageData: wordPressPage (id:54)  {
     title,
     content,
     featuredMedia {
@@ -27,3 +26,4 @@ export default {
   }
 }
 </script>
+
