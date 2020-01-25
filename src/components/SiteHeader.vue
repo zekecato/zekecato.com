@@ -1,8 +1,8 @@
 <template>
         <div class="flex flex-col sm:flex-row px-3 sm:pb-3 justify-between h-auto">
-            <div class="text-center sm:text-left sm:w-5/6 md:w-4/6">
-                <g-link to="/" class="text-3xl sm:text-5xl font-semibold antilink px-1">
-                    <span class="">Zeke Cato Enterprise</span>
+            <div class="text-center sm:text-left sm:w-5/6 md:w-11/12">
+                <g-link tag="div" to="/" class="text-3xl sm:text-5xl font-semibold cursor-pointer px-1">
+                    Zeke Cato Enterprise
                 </g-link>
                 <div class="subtitleparent flex flex-wrap justify-center sm:justify-start -mt-2">
                     <div>
@@ -12,6 +12,7 @@
                     <div>
                         Math, science, and technology tutoring
                     </div>
+                    <div class="invisible md:visible">:</div>
                     <div>
                         Sensitively Simple natural body care
                     </div>
@@ -20,7 +21,7 @@
             <div class="flex flex-row justify-center items-center sm:flex-col">
                 <a href="mailto:zeke@zekecato.com" 
                    id="envelope" 
-                   class="p-1 antilink"
+                   class="p-1 text-black"
                    content="<span style='user-select:all; font-weight:bold;'>zeke@zekecato.com</span>"
                    v-tippy="{
                        placement: 'left',
@@ -36,7 +37,7 @@
                 </a>
                 <a href="https://www.linkedin.com/in/roy-zeke-schultz-cato-8665a453/" 
                    id="linkedin" 
-                   class="p-1 antilink">
+                   class="p-1 text-black">
                     <div content="Check out my LinkedIn profile..."
                        v-tippy="{
                        placement: 'right',

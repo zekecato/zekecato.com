@@ -1,16 +1,19 @@
 <template>
-    <nav class="bg-black h-12 ">
-        <ul class="flex pt-2 px-3 navlinks">
-            <li>
-                <g-link class="antilink" to="/">
-                    <span class="navlinktext">Home</span>
-                </g-link>
-            </li>
-            <li v-for="{ node } in $static.navLinks.edges" :key="node.id">
-                <g-link class="antilink" :to="node.slug">
-                    <span class="navlinktext">{{ node.title }}</span>
-                </g-link>
-            </li>
+    <nav>
+        <ul class="bg-black h-10 flex justify-center sm:justify-start items-center p-2 pl-4 sm:px-4">
+            <g-link exact-active-class="focuslink" 
+                    class="navlink" 
+                    to="/" 
+                    tag="li">
+                Home
+            </g-link>
+            <g-link v-for="{ node } in $static.navLinks.edges" :key="node.id" 
+                    exact-active-class="focuslink" 
+                    class="navlink" 
+                    :to="node.slug"
+                    tag="li">
+                {{ node.title }}
+            </g-link>
         </ul>
     </nav>
 </template>
@@ -36,11 +39,18 @@ export default {
 </script>
 
 <style scoped>
-    .navlinks>li {
-        @apply pr-4 py-1 
+    
+    .focuslink {
+        @apply bg-gray-700
+    }
+    
+    .navlink {
+        @apply text-white px-4 py-3 font-bold cursor-pointer;
+        transition: 0.2s;
+    }
+    
+    .navlink:hover {
+        @apply bg-gray-600
     }
 
-    .navlinktext {
-        @apply text-white 
-    }
 </style>

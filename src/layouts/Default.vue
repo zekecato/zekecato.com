@@ -1,10 +1,12 @@
 <template>
   <div>
+    <a href="#"></a>
     <SiteHeader/>
     <SiteNav/>
 
     <slot/>
 
+    <SiteFooter/>
   </div>
 </template>
 
@@ -25,11 +27,6 @@
     @apply underline
   }
 
-  .antilink {
-    @apply text-black;
-    text-decoration: none !important;
-  }
-
   .featuredimage {
     @apply py-4 px-8 bg-gray-300
   }
@@ -42,10 +39,13 @@
 <script>
 import SiteHeader from '~/components/SiteHeader.vue'
 import SiteNav from '~/components/SiteNav.vue'
+import SiteFooter from '~/components/SiteFooter.vue'
+
 export default {
   components: {
     SiteHeader,
     SiteNav,
+    SiteFooter
   }
 }
 </script>
