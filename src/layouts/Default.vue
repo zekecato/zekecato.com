@@ -1,11 +1,13 @@
 <template>
-  <div class="flex flex-col justify-between min-h-screen">
-    <SiteHeader/>
-    <SiteNav/>
-
-    <slot/>
-
-    <SiteFooter/>
+  <div class="relative flex flex-col justify-start items-center min-h-screen">
+    <SiteHeader class="w-full"/>
+    <SiteNav class="w-full"/>
+    <div class="flex flex-col items-center flex-grow mb-16 pt-3 w-full max-w-5xl">
+      <div class="flex flex-col flex-grow w-full">
+        <slot/>
+      </div>
+    </div>
+    <SiteFooter class="absolute bottom-0 inset-x-0"/>
   </div>
 </template>
 
@@ -31,7 +33,7 @@
   }
 
   .featuredimage {
-    @apply py-4 px-8
+    @apply pb-4 px-8
   }
 
   .pagecontent {

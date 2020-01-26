@@ -1,5 +1,5 @@
 <template>
-  <Layout class="flex flex-grow">
+  <Layout>
     <div class="pagecontent">
       <h1>ZekeCato.com :)</h1>
       <ul>

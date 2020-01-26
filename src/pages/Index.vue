@@ -1,11 +1,7 @@
 <template>
   <Layout>
-    <div class="w-full flex flex-col items-center">
-      <div class="flex flex-col items-center max-w-5xl">
-        <img class="featuredimage" :src="$page.pageData.featuredMedia.sourceUrl" :alt="$page.pageData.featuredMedia.altText"/>
-        <div class="pagecontent" v-html="$page.pageData.content"></div>
-      </div>
-    </div>
+    <img class="featuredimage" :src="$page.pageData.featuredMedia.sourceUrl" :alt="$page.pageData.featuredMedia.altText"/>
+    <div class="pagecontent" v-html="$page.pageData.content"></div>
   </Layout>
 </template>
 
