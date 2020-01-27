@@ -13,7 +13,7 @@
                         Math, science, and technology tutoring
                     </div>
                     <div class="invisible md:visible">:</div>
-                    <div>
+                    <div> 
                         Sensitively Simple natural body care
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                        appendTo: 'parent',
                        flipBehavior: ['left','bottom'],
                    }">
-                    <fontawesome :icon="['fas','envelope']" size='2x' />
+                    <fontawesome :icon="['fas','envelope']" size='2x'></fontawesome>
                 </a>
                 <a href="https://www.linkedin.com/in/roy-zeke-schultz-cato-8665a453/" 
                    id="linkedin" 
@@ -49,7 +49,7 @@
                        appendTo: 'parent',
                        flipBehavior: ['right','left','bottom'],
                     }"> 
-                        <fontawesome :icon="['fab','linkedin']" size='2x' />
+                        <fontawesome :icon="['fab','linkedin']" size='2x'></fontawesome>
                     </div>
                 </a>
             </div>
