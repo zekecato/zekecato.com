@@ -20,7 +20,7 @@
 
 <static-query>
     query NavLinks {
-        navLinks:allWordPressPage {
+        navLinks:allWordPressPage (filter: {status: {eq: "publish"}}) {
             edges {
                 node {
                     id,

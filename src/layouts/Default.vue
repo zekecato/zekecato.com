@@ -2,8 +2,8 @@
   <div class="relative flex flex-col justify-start items-center min-h-screen">
     <SiteHeader class="w-full"/>
     <SiteNav class="w-full"/>
-    <div class="flex flex-col items-center flex-grow mb-16 pt-3 w-full max-w-5xl">
-      <div class="flex flex-col flex-grow w-full">
+    <div class="flex flex-col items-center flex-grow mb-16 pt-3 sm:pl-2 sm:pr-1 w-full max-w-5xl">
+      <div class="flex flex-col flex-grow w-full py-2">
         <slot/>
       </div>
     </div>
@@ -24,6 +24,14 @@
     @apply text-2xl
   }
 
+  h3 {
+    @apply text-xl
+  }
+
+  p {
+    @apply pb-2
+  }
+
   a {
     @apply text-teal-800 font-bold
   }
@@ -37,7 +45,11 @@
   }
 
   .pagecontent {
-    @apply mx-6 px-6 mt-2 py-2 bg-gray-100 flex-grow
+    @apply mx-6 mt-2 px-6 pb-3 flex-grow
+  }
+
+  .pagecontent>ul {
+    @apply list-disc ml-6
   }
 </style>
 

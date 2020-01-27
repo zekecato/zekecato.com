@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <img class="featuredimage" :src="$page.pageData.featuredMedia.sourceUrl" :alt="$page.pageData.featuredMedia.altText"/>
-    <div class="pagecontent" v-html="$page.pageData.content"></div>
+    <div class="pagecontent bg-gray-100" v-html="$page.pageData.content"></div>
   </Layout>
 </template>
 
