@@ -2,11 +2,11 @@
   <Layout>
     <div class="pagecontent">
       <h1>ZekeCato.com :)</h1>
-      <ul>
-        <li v-for="{ node } in $page.allWordPressPost.edges" :key="node.id">
-          <Post :post="node" />
-        </li>
-      </ul>
+      <div id="flex flex-wrap flex-col ">
+        <div class="max-w-sm" v-for="{ node } in $page.allWordPressPost.edges" :key="node.id">
+            <Post :post="node" />
+        </div>
+      </div>
     </div>
     <Pager :info="$page.allWordPressPost.pageInfo"/>
   </Layout>
@@ -24,6 +24,7 @@ query Home ($page: Int) {
         id
         title
         path
+        content
         excerpt
       }
     }
@@ -45,3 +46,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  
+</style>
