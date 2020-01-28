@@ -45,12 +45,16 @@ export default {
     }
     
     .navlink {
-        @apply text-white px-4 py-3 font-bold cursor-pointer;
+        @apply text-white px-4 py-3 font-bold cursor-pointer select-none;
         transition: 0.2s;
     }
     
     .navlink:hover {
         @apply bg-gray-600
+    }
+
+    .navlink:active {
+        @apply bg-gray-800
     }
 
 </style>
