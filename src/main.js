@@ -12,7 +12,7 @@ library.add(faEnvelope)
 
 import VueTippy from 'vue-tippy'
 
-config.autoAddCss = false;
+// config.autoAddCss = false;
 
 import DefaultLayout from '~/layouts/Default.vue'
 
