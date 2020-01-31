@@ -32,14 +32,6 @@
     @apply pb-2
   }
 
-  a {
-    @apply text-teal-800 font-bold
-  }
-
-  a:hover {
-    @apply underline
-  }
-
   .featuredimage {
     @apply pb-4 px-8
   }
@@ -48,9 +40,18 @@
     @apply mx-6 mt-2 px-6 pb-3 flex-grow
   }
 
-  .pagecontent>ul {
+  .pagecontent ul {
     @apply list-disc ml-6
   }
+
+  .pagecontent a {
+    @apply text-teal-800 font-bold
+  }
+
+  .pagecontent a:hover {
+    @apply underline
+  }
+
 </style>
 
 <script>

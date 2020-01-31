@@ -1,10 +1,7 @@
-# WordPress starter for Gridsome
+# Zekecato.com based on WordPress starter for Gridsome
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gridsome/gridsome-starter-wordpress)
 
-## Install
-
-`gridsome create my-gridsome-project wordpress`
 
 ## Guide
 
@@ -34,6 +31,8 @@ module.exports = {
 
 See all [options](https://gridsome.org/plugins/@gridsome/source-wordpress).
 
-## Included templates
+## Where's my index.vue?
 
-This starter includes basic templates for categories, tags and posts.
+Currently the home path is configured in gridsome.config.js to point to the about page. I am opting to manage all pages and page content through the Wordpress CMS unless there is real need for customization beyond the default layout.
+
+
