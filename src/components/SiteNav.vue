@@ -14,15 +14,7 @@
                     tag="li">
                 {{ node.title }}
             </g-link>
-            <div class="navlink flex flex-col items-center" @click="toggleExtraLinks">
-
-                <div class="flex">
-                    <div>Extra Links</div>
-                    <div class="pl-2 menucaret" :class="{'menucaret-open':showExtraLinks}">
-                        <fontawesome :icon="['fas','caret-up']"></fontawesome>
-                    </div>
-                </div>
-            </div>
+            <a href="http://sensitivelysimple.com" class="navlink">Sensitively Simple</a>
         </ul>
     </nav>
 </template>
@@ -43,14 +35,7 @@
 
 <script>
 export default {
-  data () {
-    return {showExtraLinks: false}
-  },
-  methods: {
-      toggleExtraLinks () {
-          this.showExtraLinks = !this.showExtraLinks;
-      }
-  }
+  
 }
 </script>
 
@@ -63,14 +48,6 @@ export default {
     .navlink {
         @apply text-white px-4 py-3 font-bold cursor-pointer select-none;
         transition: 0.2s;
-    }
-
-    .menucaret {
-        transition: 0.3s;
-    }
-
-    .menucaret-open {
-        transform: rotate(180deg) translateY(-2px) translateX(-6px);
     }
     
     .navlink:hover {
