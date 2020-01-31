@@ -12,8 +12,6 @@ library.add(faEnvelope, faCaretUp, faCaretDown)
 
 import VueTippy from 'vue-tippy'
 
-//config.autoAddCss = false;
-
 import DefaultLayout from '~/layouts/Default.vue'
 
 export default function (Vue) {
