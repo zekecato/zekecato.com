@@ -6,8 +6,8 @@
 </template>
 
 <page-query>
-query WordPressPage ($id: ID!) {
-  data: wordPressPage (id: $id)  {
+query WordPressPage ($path: String!) {
+  data: wordPressPage (path: $path)  {
     id,
     title,
     content,
