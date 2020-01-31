@@ -1,7 +1,7 @@
 
 module.exports = {
-  siteName: 'Gridsome',
-  siteDescription: 'A WordPress starter for Gridsome',
+  siteName: 'Zeke Cato Enterprise',
+  siteDescription: 'Zeke Cato described as a professional and business entity.',
 
   templates: {
     WordPressCategory: '/category/:slug', // adds route for "category" post type (Optional)
@@ -14,7 +14,7 @@ module.exports = {
     {
       use: '@gridsome/source-wordpress',
       options: {
-        baseUrl: 'http://zekecato.com',//process.env.WORDPRESS_URL, // required
+        baseUrl: 'https://admin.zekecato.com',//process.env.WORDPRESS_URL, // required
         typeName: 'WordPress', // GraphQL schema name (Optional)
       }
     },
