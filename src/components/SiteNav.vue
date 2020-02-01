@@ -1,21 +1,26 @@
 <template>
-    <nav class="">
-        <ul class="bg-black h-10 flex justify-center sm:justify-start items-center p-2 pl-4 sm:px-4">
-            <g-link exact-active-class="focuslink" 
-                    class="navlink" 
-                    to="/" 
-                    tag="li">
-                Home
-            </g-link>
-            <g-link v-for="{ node } in $static.navLinks.edges" :key="node.id" 
-                    exact-active-class="focuslink" 
-                    class="navlink" 
-                    :to="node.slug"
-                    tag="li">
-                {{ node.title }}
-            </g-link>
-            <a href="http://sensitivelysimple.com" class="navlink">Sensitively Simple</a>
-        </ul>
+    <nav class="bg-black">
+        <div class="flex flex-col sm:flex-row text-white justify-center sm:justify-start items-center">
+            <div class="sm:hidden cursor-pointer" @click="menuOpen=!menuOpen">
+                <fontawesome class="my-2" :icon="['fas','bars']" size='lg'></fontawesome>
+            </div>
+            <ul class="sm:h-auto flex flex-col sm:flex-row sm:px-4 sm:pb-0 items-stretch overflow-hidden sm:overflow-visible" :class="{'h-0':!menuOpen}">
+                <g-link exact-active-class="focuslink" 
+                        class="navlink" 
+                        to="/" 
+                        tag="li">
+                    Home
+                </g-link>
+                <g-link v-for="{ node } in $static.navLinks.edges" :key="node.id" 
+                        exact-active-class="focuslink" 
+                        class="navlink" 
+                        :to="node.slug"
+                        tag="li">
+                    {{ node.title }}
+                </g-link>
+                <a href="http://sensitivelysimple.com" class="navlink">Sensitively Simple</a>
+            </ul>
+        </div>
     </nav>
 </template>
 
@@ -35,7 +40,11 @@
 
 <script>
 export default {
-  
+  data(){
+      return {
+          menuOpen: false
+      }
+  }
 }
 </script>
 
@@ -44,12 +53,17 @@ export default {
     .focuslink {
         @apply bg-gray-700
     }
-    
+
     .navlink {
-        @apply text-white px-4 py-3 font-bold cursor-pointer select-none;
+        @apply py-1 mb-1 px-5 font-bold cursor-pointer select-none text-center;
         transition: 0.2s;
     }
-    
+
+    @screen sm {
+        .navlink {
+            @apply px-4 py-3 -my-1;
+        }
+    }
     .navlink:hover {
         @apply bg-gray-600
     }
