@@ -22,7 +22,7 @@
                 <a href="mailto:zeke@zekecato.com" 
                    id="envelope" 
                    class="p-1 text-black"
-                   content="<span style='user-select:all; font-weight:bold;'>zeke@zekecato.com</span>"
+                   content="<span style='user-select:all;'>zeke@zekecato.com</span>"
                    v-tippy="{
                        placement: 'left',
                        arrow: true,

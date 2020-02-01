@@ -6,9 +6,9 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 
 // Site Icons
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope, faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faCaretUp, faCaretDown, faBars } from '@fortawesome/free-solid-svg-icons'
 library.add(faLinkedin)
-library.add(faEnvelope, faCaretUp, faCaretDown)
+library.add(faEnvelope, faCaretUp, faCaretDown, faBars)
 
 import VueTippy from 'vue-tippy'
 
