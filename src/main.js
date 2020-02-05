@@ -13,6 +13,7 @@ library.add(faEnvelope, faCaretUp, faCaretDown, faBars)
 import VueTippy from 'vue-tippy'
 
 import DefaultLayout from '~/layouts/Default.vue'
+import './global.css'
 
 export default function (Vue) {
   Vue.use(VueTippy, {
