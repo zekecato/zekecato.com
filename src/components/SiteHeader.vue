@@ -1,5 +1,5 @@
 <template>
-        <div class="flex flex-col sm:flex-row px-3 sm:pb-3 justify-between h-auto bg-gray-100">
+        <div class="flex flex-col sm:flex-row px-3 sm:pb-3 justify-between bg-gray-100">
             <div class="text-center sm:text-left sm:w-5/6 md:w-11/12">
                 <g-link tag="div" to="/" class="text-3xl sm:text-5xl font-semibold cursor-pointer px-1">
                     Zeke Cato Enterprise
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-row justify-center items-center sm:flex-col sm:mt-2">
+            <div class="flex flex-row justify-center items-center sm:flex-col sm:flex-wrap sm:mt-2 sm:mr-8 sm:h-24">
                 <a href="mailto:zeke@zekecato.com" 
                    id="envelope" 
                    class="p-1 text-black"
@@ -52,6 +52,9 @@
                         <fontawesome :icon="['fab','linkedin']" size='2x'></fontawesome>
                     </div>
                 </a>
+                <a href="https://github.com/zekecato/zekecato.com" class="p-1 text-black sm:ml-1 ">
+                    <fontawesome :icon="['fab','github-square']" size='2x'></fontawesome>
+                </a>
             </div>
         </div>    
 </template>
@@ -68,9 +71,9 @@ export default {
         @apply px-1 text-base text-gray-600;
     }
 
-    @media (min-width: 640px){
-        #linkedin {
-            font-size: 1.1rem;
+    @screen sm {
+        #envelope {
+            font-size: .9rem;
         }
     }
 
