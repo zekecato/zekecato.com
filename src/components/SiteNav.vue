@@ -5,18 +5,19 @@
                 <fontawesome class="my-2" :icon="['fas','bars']" size='lg'></fontawesome>
             </div>
             <ul class="sm:h-auto flex flex-col sm:flex-row sm:px-4 sm:pb-0 items-stretch overflow-hidden sm:overflow-visible" :class="{'h-0':!menuOpen}">
-                <g-link exact-active-class="focuslink" 
-                        class="navlink" 
-                        to="/" 
-                        tag="li">
-                    Home
-                </g-link>
                 <g-link v-for="{ node } in $static.navLinks.edges" :key="node.id" 
                         exact-active-class="focuslink" 
                         class="navlink" 
                         :to="node.slug"
                         tag="li">
                     {{ node.title }}
+                </g-link>
+                <g-link 
+                    to="/mailing-list"
+                    class="navlink"
+                    tag="li"
+                    exact-active-class="focuslink">
+                    Mailing List
                 </g-link>
                 <a href="http://sensitivelysimple.com" class="navlink">Sensitively Simple</a>
             </ul>
@@ -26,12 +27,13 @@
 
 <static-query>
     query NavLinks {
-        navLinks:allWordPressPage (filter: {status: {eq: "publish"}}) {
+        navLinks:allWordPressPage (sortBy: "menuOrder", order:ASC filter: {status: {eq: "publish"}}) {
             edges {
                 node {
                     id,
                     title,
-                    slug
+                    slug,
+                    menuOrder
                 }
             }
         }

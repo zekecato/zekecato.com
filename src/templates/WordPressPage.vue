@@ -1,7 +1,9 @@
 <template>
   <Layout>
       <img class="featuredimage flex-none" v-if="$page.data.featuredMedia" :src="$page.data.featuredMedia.sourceUrl" :alt="$page.data.featuredMedia.altText"/>
-      <div class="pagecontent bg-gray-100 flex-grow" v-html="$page.data.content"></div>
+      <div class="pagecontent flex-grow">
+        <div class="inline" v-html="$page.data.content"></div>
+      </div>
   </Layout>
 </template>
 

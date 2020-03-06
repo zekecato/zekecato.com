@@ -12,32 +12,14 @@
 </template>
 
 <style>
-  body {
-    @apply bg-gray-300
-  }
 
-  h1 {
-    @apply text-4xl
-  }
-
-  h2 {
-    @apply text-2xl
-  }
-
-  h3 {
-    @apply text-xl
-  }
-
-  p {
-    @apply pb-2
-  }
 
   .featuredimage {
     @apply pb-4 px-8
   }
 
   .pagecontent {
-    @apply mx-6 mt-2 px-6 pb-3 flex-grow
+    @apply mx-6 mt-2 px-6 py-3 bg-gray-100 flex-grow
   }
 
   .pagecontent ul {
