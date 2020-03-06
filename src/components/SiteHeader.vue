@@ -35,6 +35,9 @@
                    }">
                     <fontawesome :icon="['fas','envelope']" size='2x'></fontawesome>
                 </a>
+                <a href="https://github.com/zekecato/zekecato.com" class="p-1 text-black sm:ml-1 sm:order-last">
+                    <fontawesome :icon="['fab','github-square']" size='2x'></fontawesome>
+                </a>
                 <a href="https://www.linkedin.com/in/roy-zeke-schultz-cato-8665a453/" 
                    id="linkedin" 
                    class="p-1 text-black">
@@ -52,9 +55,7 @@
                         <fontawesome :icon="['fab','linkedin']" size='2x'></fontawesome>
                     </div>
                 </a>
-                <a href="https://github.com/zekecato/zekecato.com" class="p-1 text-black sm:ml-1 ">
-                    <fontawesome :icon="['fab','github-square']" size='2x'></fontawesome>
-                </a>
+                
             </div>
         </div>    
 </template>
