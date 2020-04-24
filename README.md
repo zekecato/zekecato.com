@@ -11,3 +11,9 @@ Currently the home path is configured in gridsome.config.js to point to the abou
 ## Package Management
 
 Use Yarn.
+
+## Other Stuff
+
+### Style
+
+Tailwinds CSS

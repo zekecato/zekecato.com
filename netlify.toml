@@ -1,6 +1,7 @@
 [build]
   publish = "dist"
   command = "gridsome build"
-  
+  functions = "netlify/functions"
+
 [template.environment]
   WORDPRESS_URL = "Replace me with your Wordpress URL"
