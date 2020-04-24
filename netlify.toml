@@ -1,6 +1,7 @@
 [build]
   publish = "dist"
-  command = "gridsome build"
-  
+  command = "cd functions && npm i && cd .. && gridsome build"
+  functions = "functions"
+
 [template.environment]
   WORDPRESS_URL = "Replace me with your Wordpress URL"
