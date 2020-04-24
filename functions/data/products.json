@@ -1,0 +1,26 @@
+[
+  {
+    "sku": "TFT05",
+    "name": "Tips For Tips - $5",
+    "amount": 500,
+    "currency": "USD"
+  },
+  {
+    "sku": "TFT10",
+    "name": "Tips For Tips - $10",
+    "amount": 1000,
+    "currency": "USD"
+  },
+  {
+    "sku": "TFT20",
+    "name": "Tips For Tips - $20",
+    "amount": 2000,
+    "currency": "USD"
+  },
+  {
+    "sku": "TFTCUSTOM",
+    "name": "Tips For Tips - Custom Amount",
+    "amount": 0,
+    "currency": "USD"
+  }
+]
