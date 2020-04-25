@@ -1,100 +1,77 @@
 <template>
-  <layout>
-    <div class="pagecontent">
-      <h1>Tips For Tips!</h1>
-      <hr />
-      <p>
-        Sometimes, you just need a hint here and there. Sometimes, you just need
-        that question answered that doesn't make sense for a whole consulting
-        session. Sometimes, you just want a way to absolve your guilt for asking
-        that
-        feels-kinda-silly-to-ask-but-how-would-you-know-unless-you-had-done-this-specific-thing-before
-        question.
-      </p>
-      <h3>That's why I created Tips For Tips!</h3>
-      <p>
-        It's my desire to keep researching topics, learning new skills, and
-        helping my community with technology, chemistry, instructional videos or
-        whatever! If I've created value in your life with my top-notch (and
-        competitively priced) advice, show your support and keep me in the biz
-        by leaving me a tip below.
-      </p>
-      <hr />
-      <form class="flex flex-col items-center">
-        <div class="flex">
-          <div class="flex flex-col items-center">
-            <h3>Select Tip Amount</h3>
-            <div id="tip-selection">
-              <div class="flex items-center mr-4 mb-4">
-                <input type="radio" id="tft05" name="tip" value="TFT05" v-model="tipSelection" />
-                <label for="tft05">
-                  <span class="border-black flex-no-shrink"></span>$5
-                </label>
-              </div>
-              <div class="flex items-center mr-4 mb-4">
-                <input type="radio" id="tft10" name="tip" value="TFT10" v-model="tipSelection" />
-                <label for="tft10">
-                  <span class="border-black flex-no-shrink"></span>$10
-                </label>
-              </div>
-              <div class="flex items-center mr-4 mb-4">
-                <input type="radio" id="tft20" name="tip" value="TFT20" v-model="tipSelection" />
-                <label for="tft20">
-                  <span class="border-black flex-no-shrink"></span>$20
-                </label>
-              </div>
-              <div class="flex flex-col">
-                <div class="flex items-center mr-4">
-                  <input
-                    type="radio"
-                    id="tftcustom"
-                    name="tip"
-                    value="TFTCUSTOM"
-                    v-model="tipSelection"
-                  />
-                  <label for="tftcustom">
-                    <span class="border-black flex-no-shrink"></span>Enter
-                    custom amount
-                  </label>
-                </div>
-                <div class="flex items-center mr-4">
-                  <label for="custom-tip" class="text-lg ml-5 mb-1">$</label>
-                  <input
-                    type="number"
-                    id="custom-tip"
-                    class="ml-1 w-24 border-black p-1"
-                    v-model="customTip"
-                    :disabled="tipSelection !== 'TFTCUSTOM'"
-                  />
-                </div>
-              </div>
+  <form class="flex flex-col items-center">
+    <div class="flex">
+      <div class="flex flex-col items-center">
+        <h3>Select Tip Amount</h3>
+        <div id="tip-selection">
+          <div class="flex items-center mr-4 mb-4">
+            <input type="radio" id="tft05" name="tip" value="TFT05" v-model="tipSelection" />
+            <label for="tft05">
+              <span class="border-black flex-no-shrink"></span>$5
+            </label>
+          </div>
+          <div class="flex items-center mr-4 mb-4">
+            <input type="radio" id="tft10" name="tip" value="TFT10" v-model="tipSelection" />
+            <label for="tft10">
+              <span class="border-black flex-no-shrink"></span>$10
+            </label>
+          </div>
+          <div class="flex items-center mr-4 mb-4">
+            <input type="radio" id="tft20" name="tip" value="TFT20" v-model="tipSelection" />
+            <label for="tft20">
+              <span class="border-black flex-no-shrink"></span>$20
+            </label>
+          </div>
+          <div class="flex flex-col">
+            <div class="flex items-center mr-4">
+              <input
+                type="radio"
+                id="tftcustom"
+                name="tip"
+                value="TFTCUSTOM"
+                v-model="tipSelection"
+              />
+              <label for="tftcustom">
+                <span class="border-black flex-no-shrink"></span>Enter
+                custom amount
+              </label>
+            </div>
+            <div class="flex items-center mr-4">
+              <label for="custom-tip" class="text-lg ml-5 mb-1">$</label>
+              <input
+                type="number"
+                id="custom-tip"
+                class="ml-1 w-24 border-black p-1"
+                v-model="customTip"
+                :disabled="tipSelection !== 'TFTCUSTOM'"
+              />
             </div>
           </div>
-          <button
-            type="submit"
-            @click="onTipSubmit"
-            class="w-36 flex-grow-none text-xl bg-black text-white p-3 rounded-lg"
-          >
-            <span :hidden="loading">Send a tip!</span>
-            <div class="sk-circle-fade m-6" :hidden="!loading">
-              <div class="sk-circle-fade-dot"></div>
-              <div class="sk-circle-fade-dot"></div>
-              <div class="sk-circle-fade-dot"></div>
-              <div class="sk-circle-fade-dot"></div>
-              <div class="sk-circle-fade-dot"></div>
-              <div class="sk-circle-fade-dot"></div>
-              <div class="sk-circle-fade-dot"></div>
-              <div class="sk-circle-fade-dot"></div>
-              <div class="sk-circle-fade-dot"></div>
-              <div class="sk-circle-fade-dot"></div>
-              <div class="sk-circle-fade-dot"></div>
-              <div class="sk-circle-fade-dot"></div>
-            </div>
-          </button>
         </div>
-      </form>
+      </div>
+      <button
+        type="submit"
+        @click="onTipSubmit"
+        class="w-36 flex-grow-none text-xl bg-black text-white p-3 rounded-lg"
+      >
+        <span :hidden="loading">Send a tip!</span>
+        <div class="sk-circle-fade m-6" :hidden="!loading">
+          <div class="sk-circle-fade-dot"></div>
+          <div class="sk-circle-fade-dot"></div>
+          <div class="sk-circle-fade-dot"></div>
+          <div class="sk-circle-fade-dot"></div>
+          <div class="sk-circle-fade-dot"></div>
+          <div class="sk-circle-fade-dot"></div>
+          <div class="sk-circle-fade-dot"></div>
+          <div class="sk-circle-fade-dot"></div>
+          <div class="sk-circle-fade-dot"></div>
+          <div class="sk-circle-fade-dot"></div>
+          <div class="sk-circle-fade-dot"></div>
+          <div class="sk-circle-fade-dot"></div>
+        </div>
+      </button>
     </div>
-  </layout>
+  </form>
 </template>
 
 <script>
