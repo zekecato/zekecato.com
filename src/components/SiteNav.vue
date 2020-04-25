@@ -9,7 +9,7 @@
         :class="{'h-0':!menuOpen}"
       >
         <g-link
-          v-for="{ node } in $static.navLinks.edges"
+          v-for="{ node } in $static.navLinks.edges.filter( ({ node }) => node.slug !== 'tips-for-tips' )"
           :key="node.id"
           exact-active-class="focuslink"
           class="navlink"
