@@ -71,6 +71,10 @@
         </div>
       </button>
     </div>
+    <div class="flex self-stretch items-center pt-1 ml-20">
+      <label for="note" class="text-lg ml-5 mb-1">Optional note</label>
+      <input type="text" id="note" class="ml-1 w-56 border-black p-1" v-model="note" />
+    </div>
   </form>
 </template>
 
@@ -85,7 +89,8 @@ export default {
     return {
       tipSelection: "",
       customTip: 0.5,
-      loading: false
+      loading: false,
+      note: ""
     };
   },
   methods: {
@@ -100,7 +105,7 @@ export default {
       try {
         const { data } = await api.post("/.netlify/functions/create-checkout", {
           sku: this.tipSelection,
-          details: { amount: this.customTip * 100, description: "" }
+          details: { amount: this.customTip * 100, description: this.note }
         });
 
         const stripe = Stripe(data.publishableKey);
@@ -130,7 +135,8 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-#custom-tip {
+#custom-tip,
+#note {
   transition: 0.2s;
   @apply border rounded-lg;
 }
