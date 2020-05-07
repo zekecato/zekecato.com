@@ -23,11 +23,26 @@ module.exports = function(api) {
       return node.slug == "tips-for-tips";
     });
 
+    const masksPage = data.allWordPressPage.edges.find(({ node }) => {
+      return node.slug == "cloth-masks";
+    });
+
     data.allWordPressPage.edges.forEach(({ node }) => {
       if (node.id == tipsForTipsPage.node.id) {
         createPage({
           path: `/${node.slug}`,
           component: "./src/templates/TipsForTipsPage.vue",
+          context: {
+            id: node.id,
+          },
+        });
+        return;
+      }
+
+      if (node.id == masksPage.node.id) {
+        createPage({
+          path: `/${node.slug}`,
+          component: "./src/templates/MasksPage.vue",
           context: {
             id: node.id,
           },

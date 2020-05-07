@@ -9,8 +9,13 @@ exports.handler = async (event, context, callback) => {
   };
   if (sku === "TFTCUSTOM") {
     validDetail["amount"] = details.amount > 0 ? details.amount : 0;
+    validDetail["quantity"] = 1;
+  } else if (sku === "MASK") {
+    validDetail["amount"] = details.amount > 0 ? details.amount : 0;
+    validDetail["quantity"] = details.quantity > 0 ? details.quantity : 1;
   } else {
     validDetail["amount"] = product.amount;
+    validDetail["quantity"] = 1;
   }
 
   const session = await stripe.checkout.sessions.create({
@@ -24,7 +29,7 @@ exports.handler = async (event, context, callback) => {
         description: validDetail.description || " ",
         amount: validDetail.amount,
         currency: "USD",
-        quantity: 1,
+        quantity: validDetail.quantity,
       },
     ],
   });
