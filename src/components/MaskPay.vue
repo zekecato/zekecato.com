@@ -78,7 +78,11 @@ export default {
       try {
         const { data } = await api.post("/.netlify/functions/create-checkout", {
           sku: "MASK",
-          details: { amount: this.maskPrice * 100, description: this.note }
+          details: {
+            amount: this.maskPrice * 100,
+            quantity: this.quantity,
+            description: this.note
+          }
         });
 
         const stripe = Stripe(data.publishableKey);
