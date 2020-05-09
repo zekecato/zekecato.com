@@ -18,7 +18,7 @@ exports.handler = async (event, context, callback) => {
     validDetail["quantity"] = 1;
   }
 
-  const session = await stripe.checkout.sessions.create({
+  const sessionParams = {
     payment_method_types: ["card"],
     billing_address_collection: "auto",
     success_url: `${process.env.URL}/payment-success`,
@@ -32,7 +32,15 @@ exports.handler = async (event, context, callback) => {
         quantity: validDetail.quantity,
       },
     ],
-  });
+  };
+
+  if (product.collectAddress) {
+    sessionParams["shipping_address_collection"] = {
+      allowed_countries: ["US"],
+    };
+  }
+
+  const session = await stripe.checkout.sessions.create(sessionParams);
 
   return {
     statusCode: 200,
