@@ -41,11 +41,18 @@ exports.handler = async (event, context, callback) => {
     };
   }
 
-  if (validDetail.addShipping)
+  if (validDetail.addShipping) {
+    const { name, amount, currency } = inventory.find(
+      (p) => p.sku === "SHIPPING"
+    );
+
     sessionParams.line_items.push({
-      ...inventory.find((p) => p.sku === "SHIPPING"),
+      name,
+      amount,
+      currency,
       quantity: 1,
     });
+  }
 
   const session = await stripe.checkout.sessions.create(sessionParams);
 
