@@ -25,6 +25,23 @@
             />
           </div>
         </div>
+        <div class="pb-1">
+          <label class="flex justify-start items-start">
+            <div
+              class="bg-white border-2 rounded w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500"
+              :class="{ 'border-black' : addShipping, 'border-gray-400': !addShipping }"
+            >
+              <input type="checkbox" class="opacity-0 absolute" v-model="addShipping" />
+              <svg
+                class="fill-current hidden w-4 h-4 text-black pointer-events-none"
+                viewBox="0 0 20 20"
+              >
+                <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
+              </svg>
+            </div>
+            <div class="select-none">Add Shipping ($8 USPS Priority Mail)</div>
+          </label>
+        </div>
       </div>
     </div>
     <button
@@ -63,12 +80,13 @@ export default {
       maskPrice: 5,
       quantity: 1,
       loading: false,
-      note: ""
+      note: "",
+      addShipping: false
     };
   },
   computed: {
     total: function() {
-      return this.maskPrice * this.quantity;
+      return this.maskPrice * this.quantity + (this.addShipping ? 8 : 0);
     }
   },
   methods: {
@@ -81,7 +99,8 @@ export default {
           details: {
             amount: this.maskPrice * 100,
             quantity: this.quantity,
-            description: this.note
+            description: this.note,
+            addShipping: this.addShipping
           }
         });
 
@@ -163,6 +182,11 @@ input[type="radio"]:checked + label span {
 input[type="radio"]:checked + label {
   @apply font-bold;
 }
+
+input:checked + svg {
+  display: block;
+}
+
 :root {
   --sk-size: 40px;
   --sk-color: #333;

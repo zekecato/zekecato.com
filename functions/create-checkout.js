@@ -6,6 +6,7 @@ exports.handler = async (event, context, callback) => {
   const product = inventory.find((p) => p.sku === sku);
   const validDetail = {
     description: details.description.substring(0, 255),
+    addShipping: !!details.addShipping,
   };
   if (sku === "TFTCUSTOM") {
     validDetail["amount"] = details.amount > 0 ? details.amount : 0;
@@ -38,6 +39,19 @@ exports.handler = async (event, context, callback) => {
     sessionParams["shipping_address_collection"] = {
       allowed_countries: ["US"],
     };
+  }
+
+  if (validDetail.addShipping) {
+    const { name, amount, currency } = inventory.find(
+      (p) => p.sku === "SHIPPING"
+    );
+
+    sessionParams.line_items.push({
+      name,
+      amount,
+      currency,
+      quantity: 1,
+    });
   }
 
   const session = await stripe.checkout.sessions.create(sessionParams);

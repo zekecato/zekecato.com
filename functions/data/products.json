@@ -29,5 +29,12 @@
     "amount": 0,
     "currency": "USD",
     "collectAddress": true
+  },
+  {
+    "sku": "SHIPPING",
+    "name": "USPS Priority Mail Shipping",
+    "amount": 800,
+    "currency": "USD",
+    "collectAddress": true
   }
 ]
