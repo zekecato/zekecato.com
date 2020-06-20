@@ -94,25 +94,19 @@ export default {
       event.preventDefault();
       this.loading = true;
       try {
-        const { data } = await api.post("/.netlify/functions/create-checkout", {
-          sku: "MASK",
-          details: {
-            amount: this.maskPrice * 100,
-            quantity: this.quantity,
-            description: this.note,
-            addShipping: this.addShipping
+        const { data } = await api.post(
+          "/.netlify/functions/create-square-checkout",
+          {
+            sku: "MASK",
+            details: {
+              amount: this.maskPrice * 100,
+              quantity: this.quantity,
+              description: this.note,
+              addShipping: this.addShipping
+            }
           }
-        });
-
-        const stripe = Stripe(data.publishableKey);
-        const { error } = await stripe.redirectToCheckout({
-          sessionId: data.sessionId
-        });
-
-        if (error) {
-          console.error(error);
-        }
-        console.log(resp);
+        );
+        window.location.href = data.data.checkout.checkout_page_url;
       } catch (e) {
         console.log(e);
       } finally {
