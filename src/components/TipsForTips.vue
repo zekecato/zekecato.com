@@ -103,22 +103,17 @@ export default {
       }
       this.loading = true;
       try {
-        const { data } = await api.post("/.netlify/functions/create-checkout", {
-          sku: this.tipSelection,
-          details: { amount: this.customTip * 100, description: this.note }
-        });
+        const { data } = await api.post(
+          "/.netlify/functions/create-square-checkout",
+          {
+            sku: this.tipSelection,
+            details: { amount: this.customTip * 100, description: this.note }
+          }
+        );
 
-        const stripe = Stripe(data.publishableKey);
-        const { error } = await stripe.redirectToCheckout({
-          sessionId: data.sessionId
-        });
-
-        if (error) {
-          console.error(error);
-        }
-        console.log(resp);
+        window.location.href = data.data.checkout.checkout_page_url;
       } catch (e) {
-        console.log(e);
+        console.log(e.message);
       } finally {
         this.loading = false;
       }
