@@ -58,7 +58,7 @@ exports.handler = async (event, context, callback) => {
 
     order.line_items.push({
       name,
-      total_money: {
+      base_price_money: {
         amount,
         currency,
       },
