@@ -21,7 +21,7 @@
 }
 
 .pagecontent ul {
-  @apply list-disc ml-6;
+  @apply list-disc ml-6 pb-2;
 }
 
 .pagecontent a {

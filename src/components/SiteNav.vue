@@ -8,27 +8,14 @@
         class="sm:h-auto flex flex-col sm:flex-row sm:px-4 sm:pb-0 items-stretch overflow-hidden sm:overflow-visible"
         :class="{'h-0':!menuOpen}"
       >
-        <g-link
+        <NavButton
           v-for="{ node } in $static.navLinks.edges.filter( ({ node }) => node.slug !== 'tips-for-tips' )"
           :key="node.id"
-          exact-active-class="focuslink"
-          class="navlink"
           :to="node.slug"
-          tag="li"
-        >{{ node.title }}</g-link>
-        <g-link
-          to="/tips-for-tips"
-          class="navlink"
-          tag="li"
-          exact-active-class="focuslink"
-        >Tips For Tips!</g-link>
-        <g-link
-          to="/mailing-list"
-          class="navlink"
-          tag="li"
-          exact-active-class="focuslink"
-        >Mailing List</g-link>
-        <a href="http://sensitivelysimple.com" class="navlink">Sensitively Simple</a>
+        >{{ node.title }}</NavButton>
+        <NavButton to="/tips-for-tips">Tips For Tips!</NavButton>
+        <NavButton to="/mailing-list">Mailing List</NavButton>
+        <NavButton href="http://sensitivelysimple.com">Sensitively Simple</NavButton>
       </ul>
     </div>
   </nav>
@@ -50,7 +37,12 @@
 </static-query>
 
 <script>
+import NavButton from "./NavButton";
+
 export default {
+  components: {
+    NavButton
+  },
   data() {
     return {
       menuOpen: false
@@ -59,26 +51,5 @@ export default {
 };
 </script>
 
-<style scoped>
-.focuslink {
-  @apply bg-gray-700;
-}
-
-.navlink {
-  @apply py-1 mb-1 px-5 font-bold cursor-pointer select-none text-center;
-  transition: 0.2s;
-}
-
-@screen sm {
-  .navlink {
-    @apply px-4 py-3 -my-1;
-  }
-}
-.navlink:hover {
-  @apply bg-gray-600;
-}
-
-.navlink:active {
-  @apply bg-gray-800;
-}
+<style >
 </style>
