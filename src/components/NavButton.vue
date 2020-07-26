@@ -13,7 +13,7 @@
 <script>
 export default {
   name: "NavButton",
-  props: ["to", "href", "sublinks"],
+  props: ["to", "href", "sublinks"]
 };
 </script>
 
@@ -23,13 +23,13 @@ export default {
 }
 
 .navlink {
-  @apply py-1 mb-1 px-5 font-bold cursor-pointer select-none text-center;
+  @apply py-1 mb-1 px-5 font-bold cursor-pointer select-none text-center flex flex-col items-center;
   transition: 0.2s;
 }
 
 @screen sm {
   .navlink {
-    @apply px-4 py-3 -my-1;
+    @apply px-4 py-3 -my-1 flex-row;
   }
 }
 .navlink:hover {

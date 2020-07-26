@@ -28,6 +28,28 @@ module.exports = function(api) {
       }
     `);
 
+    const {
+      data: {
+        allWordPressPost: { edges: posts },
+      },
+    } = await graphql(`
+      {
+        allWordPressPost {
+          edges {
+            node {
+              id
+              slug
+              type
+              categories {
+                id
+                title
+              }
+            }
+          }
+        }
+      }
+    `);
+
     const homePage = data.allWordPressPage.edges.find(({ node }) => {
       return node.slug == "about";
     });
@@ -82,6 +104,24 @@ module.exports = function(api) {
             catId: classesCategory.node.id,
           },
         });
+        // and also create all of the pages for each class
+        posts.forEach((post) => {
+          if (
+            post.node.categories.findIndex(
+              (cat) => cat.id === classesCategory.node.id
+            ) === -1
+          ) {
+            return;
+          }
+          createPage({
+            path: `/${node.slug}/${post.node.slug}`,
+            component: "./src/templates/WordPressPost.vue",
+            context: {
+              id: post.node.id,
+            },
+          });
+        });
+
         return;
       }
 

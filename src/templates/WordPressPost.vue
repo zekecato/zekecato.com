@@ -7,21 +7,15 @@
       :alt="$page.data.featuredMedia.altText"
     />
     <div class="pagecontent flex-grow">
+      <h1>{{$page.data.title}}</h1>
       <div class="inline" v-html="$page.data.content"></div>
-      <div v-for="{node: post} in $page.posts.edges" :key="post.id">
-        <hr />
-        <g-link :to="`/${$page.data.slug}/${post.slug}`">
-          <h3 class="font-bold" v-html="post.title"></h3>
-        </g-link>
-        <div v-html="post.excerpt"></div>
-      </div>
     </div>
   </Layout>
 </template>
 
 <page-query>
-query WordPressPage ($id: ID!, $catId: ID!) {
-  data: wordPressPage (id: $id)  {
+query WordPressPost ($id: ID!) {
+  data: wordPressPost (id: $id)  {
     id,
     title,
     content,
@@ -32,16 +26,6 @@ query WordPressPage ($id: ID!, $catId: ID!) {
     },
     slug,
     status
-  },
-  posts: allWordPressPost (filter: { categories: { contains: [$catId] }}) {
-    edges {
-      node {
-        id,
-        excerpt,
-        title,
-        slug
-      }
-    }
   }
 }
 </page-query>
