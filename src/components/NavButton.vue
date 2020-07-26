@@ -1,5 +1,11 @@
 <template>
-  <g-link v-if="!!to" :to="to" class="navlink" exact-active-class="focuslink">
+  <g-link
+    v-if="!!to"
+    :to="to"
+    class="navlink"
+    active-class="focuslink"
+    exact-active-class="focuslink"
+  >
     <slot />
   </g-link>
   <a v-else-if="!!href" :href="href" class="navlink">
