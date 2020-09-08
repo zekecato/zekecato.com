@@ -62,6 +62,12 @@ module.exports = function(api) {
       return node.slug == "cloth-masks";
     });
 
+    // const sensitivelySimplePage = data.allWordPressPage.edges.find(
+    //   ({ node }) => {
+    //     return node.slug == "sensitively-simple";
+    //   }
+    // );
+
     const classesPage = data.allWordPressPage.edges.find(({ node }) => {
       return node.slug == "classes";
     });
@@ -94,6 +100,17 @@ module.exports = function(api) {
         });
         return;
       }
+
+      // if (node.id == sensitivelySimplePage.node.id) {
+      //   createPage({
+      //     path: `/${node.slug}`,
+      //     component: "./src/templates/SensitivelySimplePage.vue",
+      //     context: {
+      //       id: node.id,
+      //     },
+      //   });
+      //   return;
+      // }
 
       if (node.id == classesPage.node.id) {
         createPage({
