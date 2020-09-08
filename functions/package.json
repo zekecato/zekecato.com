@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "square-connect": "^3.20200528.0",
-    "uuid": "^8.1.0"
+    "square-connect": "^4.20200826.3",
+    "uuid": "^8.3.0"
   }
 }

@@ -1,13 +1,8 @@
-const SquareConnect = require("square-connect");
-const defaultClient = SquareConnect.ApiClient.instance;
+const { SquareConnect } = require("./helpers/square-helpers");
 const inventory = require("./data/products.json");
 const { v4: uuid } = require("uuid");
 
 exports.handler = async (event, context, callback) => {
-  // Configure OAuth2 access token for authorization: oauth2
-  const oauth2 = defaultClient.authentications["oauth2"];
-  oauth2.accessToken = process.env.squareAccessToken;
-
   const { sku, details } = JSON.parse(event.body);
   const product = inventory.find((p) => p.sku === sku);
   const validDetail = {
