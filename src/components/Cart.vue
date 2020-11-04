@@ -10,7 +10,6 @@
         v-for="line in cart"
         :line-data="line"
         :key="line.product.id"
-        v-on:remove-row=""
       ></cart-row>
       {{ JSON.stringify(this.cart) }}
     </div>
@@ -18,11 +17,9 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 import CartRow from "./CartRow.vue";
 export default {
-  props: {
-    cart: Array,
-  },
   components: {
     "cart-row": CartRow,
   },
@@ -32,17 +29,15 @@ export default {
     };
   },
   computed: {
+    ...mapState({
+      cart: "cart",
+    }),
     cartQuantitySum: function() {
-      console.log(this.cart);
       const cartQuantity = this.cart.reduce((accumulator, item) => {
-        console.log(accumulator, item);
         return accumulator + item.quantity;
       }, 0);
       return cartQuantity;
     },
-  },
-  methods: {
-    removeRow: function() {},
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <layout>
     <div class="pagecontent">
-      <cart :cart="cart"></cart>
+      <cart></cart>
       <div v-html="$page.data.content"></div>
       <hr class="m-2" />
       <div class="flex flex-wrap justify-center">
@@ -9,7 +9,6 @@
           v-for="product in products"
           :key="product.id"
           :product="product"
-          v-on:add-to-cart="addProductToCart"
         ></product-card>
       </div>
     </div>
@@ -30,13 +29,16 @@ query WordPressPage ($id: ID!) {
 
 <script>
 import axios from "axios";
-const api = axios.create({
-  baseURL: process.env.URL,
-});
 
 import ProductCard from "../components/ProductCard";
 import Cart from "../components/Cart";
 import Cookies from "js-cookie";
+
+import { mapActions, mapMutations, mapState } from "vuex";
+
+const api = axios.create({
+  baseURL: process.env.URL,
+});
 
 export default {
   metaInfo() {
@@ -49,55 +51,51 @@ export default {
     cart: Cart,
   },
   mounted: function() {
-    api.get("/.netlify/functions/get-products").then((response) => {
-      this.products = response.data.items || [];
-    });
+    // api.get("/.netlify/functions/get-products").then((response) => {
+    //   this.products = response.data.items || [];
+    // });
+    this.loadProducts();
     this.loadCart();
   },
-  beforeDestroy: function() {
-    this.saveCart();
-  },
-  data() {
-    return {
-      products: [],
-      cart: [],
-    };
+  computed: {
+    ...mapState(["products"]),
   },
   methods: {
-    loadCart: function() {
-      let cart = Cookies.get("cart");
-      cart = cart ? JSON.parse(cart) : null;
-      this.cart = (Array.isArray(cart) && cart) || [];
-    },
-    saveCart: function() {
-      if (this.cart.length > 0) {
-        Cookies.set("cart", JSON.stringify(this.cart), { sameSite: "Lax" });
-        return;
-      }
-    },
-    validateCart: function() {
-      //make sure that all of the items in the cart are valid product variants
-      //collect valid variant ids
-      const validVariants = this.products.reduce((variants, product) => {
-        return [...variants, ...product.variation_ids];
-      }, []);
-
-      const validCart = this.cart.every((variant) => {
-        return validVariants.contains(variant.id);
-      });
-    },
-    addProductToCart: function({ product, variant, quantity }) {
-      // check if the product is already in the cart
-      const foundIndex = this.cart.findIndex(
-        (elem) => elem.variant.id === variant.id
-      );
-      if (foundIndex > -1) {
-        this.cart[foundIndex].quantity += quantity;
-      } else {
-        this.cart.push({ product, variant, quantity });
-      }
-      this.saveCart();
-    },
+    ...mapActions(["loadProducts"]),
+    ...mapMutations(["loadCart"]),
+    // loadCart: function() {
+    //   let cart = Cookies.get("cart");
+    //   cart = cart ? JSON.parse(cart) : null;
+    //   this.cart = (Array.isArray(cart) && cart) || [];
+    // },
+    // saveCart: function() {
+    //   if (this.cart.length > 0) {
+    //     Cookies.set("cart", JSON.stringify(this.cart), { sameSite: "Lax" });
+    //     return;
+    //   }
+    // },
+    // validateCart: function() {
+    //   //make sure that all of the items in the cart are valid product variants
+    //   //collect valid variant ids
+    //   const validVariants = this.products.reduce((variants, product) => {
+    //     return [...variants, ...product.variation_ids];
+    //   }, []);
+    //   const validCart = this.cart.every((variant) => {
+    //     return validVariants.contains(variant.id);
+    //   });
+    // },
+    // addProductToCart: function({ product, variant, quantity }) {
+    //   // check if the product is already in the cart
+    //   const foundIndex = this.cart.findIndex(
+    //     (elem) => elem.variant.id === variant.id
+    //   );
+    //   if (foundIndex > -1) {
+    //     this.cart[foundIndex].quantity += quantity;
+    //   } else {
+    //     this.cart.push({ product, variant, quantity });
+    //   }
+    //   this.saveCart();
+    // },
   },
 };
 </script>

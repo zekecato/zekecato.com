@@ -1,7 +1,7 @@
 <template>
   <div class="h-24 relative shadow my-1 flex flex-row">
     <div
-      v-on:click="$emit('remove-row')"
+      v-on:click="removeProductFromCart(lineData)"
       class="absolute top-0 right-0 h-6 w-6 "
     >
       X
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   props: {
     lineData: Object,
@@ -37,6 +38,9 @@ export default {
     priceFormatted() {
       return `$${this.variant.price_money.amount / 100}`;
     },
+  },
+  methods: {
+    ...mapActions(["removeProductFromCart"]),
   },
 };
 </script>

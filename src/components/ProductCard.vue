@@ -68,6 +68,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -91,6 +92,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions(["addProductToCart"]),
     incrementQuantity() {
       if (this.quantity > 4) {
         this.quantity = 5;
@@ -106,7 +108,7 @@ export default {
       }
     },
     addToCart() {
-      this.$emit("add-to-cart", {
+      this.addProductToCart({
         product: this.product,
         variant: this.selectedVariant,
         quantity: this.quantity,
