@@ -36,4 +36,7 @@ export default function(Vue, { head }) {
   head.script.push({
     src: "https://js.stripe.com/v3/",
   });
+  head.script.push({
+    src: "https://js.squareupsandbox.com/v2/paymentform",
+  });
 }

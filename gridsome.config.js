@@ -1,6 +1,7 @@
 module.exports = {
   siteName: "Zeke Cato Enterprise",
-  siteDescription: "Zeke Cato described as a professional and business entity.",
+  siteDescription:
+    "IT consulting, personal care products, academic services, and more by Zeke Cato.",
 
   templates: {},
 
