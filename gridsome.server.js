@@ -79,7 +79,7 @@ module.exports = function(api) {
     );
 
     data.allWordPressPage.edges.forEach(({ node }) => {
-      if (node.id == tipsForTipsPage.node.id) {
+      if (tipsForTipsPage && node.id == tipsForTipsPage.node.id) {
         createPage({
           path: `/${node.slug}`,
           component: "./src/templates/TipsForTipsPage.vue",
@@ -90,7 +90,7 @@ module.exports = function(api) {
         return;
       }
 
-      if (node.id == masksPage.node.id) {
+      if (masksPage && node.id == masksPage.node.id) {
         createPage({
           path: `/${node.slug}`,
           component: "./src/templates/MasksPage.vue",
@@ -101,7 +101,7 @@ module.exports = function(api) {
         return;
       }
 
-      if (node.id == sensitivelySimplePage.node.id) {
+      if (sensitivelySimplePage && node.id == sensitivelySimplePage.node.id) {
         createPage({
           path: `/${node.slug}`,
           component: "./src/templates/SensitivelySimplePage.vue",
@@ -112,7 +112,7 @@ module.exports = function(api) {
         return;
       }
 
-      if (node.id == classesPage.node.id) {
+      if (classesPage && node.id == classesPage.node.id) {
         createPage({
           path: `/${node.slug}`,
           component: "./src/templates/PostListPage.vue",
