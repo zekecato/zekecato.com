@@ -84,7 +84,7 @@ module.exports = function(api) {
         return;
       }
 
-      if (masksPage & (node.id == masksPage.node.id)) {
+      if (masksPage && node.id == masksPage.node.id) {
         createPage({
           path: `/${node.slug}`,
           component: "./src/templates/MasksPage.vue",
