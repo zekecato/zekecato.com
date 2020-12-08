@@ -1,15 +1,16 @@
 <template>
   <layout>
     <div class="pagecontent">
-      <cart></cart>
-      <div v-html="$page.data.content"></div>
-      <hr class="m-2" />
-      <div class="flex flex-wrap justify-center">
-        <product-card
-          v-for="product in products"
-          :key="product.id"
-          :product="product"
-        ></product-card>
+      <div class="relative w-full">
+        <cart class="sticky"></cart>
+        <div v-html="$page.data.content"></div>
+        <div class="flex flex-wrap justify-center">
+          <product-card
+            v-for="product in products"
+            :key="product.id"
+            :product="product"
+          ></product-card>
+        </div>
       </div>
     </div>
   </layout>

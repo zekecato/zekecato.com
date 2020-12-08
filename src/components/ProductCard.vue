@@ -13,14 +13,24 @@
           <div class="flex flex-col">
             <div class="pt-2 px-2 flex flex-col">
               <h3>{{ product.name }}</h3>
-              <div v-if="product.variation_ids.length === 1">
-                <p>{{ formattedPrice }}</p>
-              </div>
             </div>
           </div>
         </div>
         <div class="px-2 pb-1">
           <p v-if="product.description">{{ product.description }}</p>
+        </div>
+        <select v-model="selection">
+          <option
+            v-for="variant in product.variations"
+            :key="variant.id"
+            v-bind:value="variant.id"
+            >{{ variant.name }}</option
+          >
+        </select>
+        {{ selection }}
+        <button v-on:click="selectedVariant">Selected</button>
+        <div v-if="product.variation_ids.length === 1">
+          <p>{{ formattedPrice }}</p>
         </div>
       </div>
       <div
@@ -72,23 +82,19 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      _selectedVariant: "",
+      selection: "",
       quantity: 1,
       showDetails: false,
     };
   },
   computed: {
-    selectedVariant() {
-      return (
-        this.product.variations.find((variant) => {
-          variant.id === this._selectedVariant;
-        }, this) || this.product.variations[0]
-      );
-    },
     formattedPrice() {
-      return this.selectedVariant.pricing_type === "VARIABLE_PRICING"
+      return;
+      !this.selectedVariant()
+        ? ""
+        : this.selectedVariant().pricing_type === "VARIABLE_PRICING"
         ? "var price"
-        : `$${this.selectedVariant.price_money.amount / 100}`;
+        : `$${this.selectedVariant().price_money.amount / 100}`;
     },
   },
   methods: {
@@ -110,9 +116,20 @@ export default {
     addToCart() {
       this.addProductToCart({
         product: this.product,
-        variant: this.selectedVariant,
+        variant: this.selectedVariant(),
         quantity: this.quantity,
       });
+    },
+    selectedVariant() {
+      const id = this.selection;
+      console.log(this);
+      const ret = {
+        ...(this.product.variations.find((variant) => {
+          variant.id === id;
+        }) || this.product.variations[0]),
+      };
+      console.log(ret);
+      return ret;
     },
   },
   props: {
