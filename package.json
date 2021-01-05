@@ -12,7 +12,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "@gridsome/source-wordpress": "^0.5.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "gridsome": "^0.7.0",
     "gridsome-plugin-tailwindcss": "^2.2.32",
     "spinkit": "^2.0.1",
