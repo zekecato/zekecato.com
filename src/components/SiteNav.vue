@@ -13,9 +13,7 @@
           :key="node.id"
           :to="node.slug"
         >{{ node.title }}</NavButton>
-        <NavButton to="/tips-for-tips">Tips For Tips!</NavButton>
         <NavButton to="/mailing-list">Mailing List</NavButton>
-        <NavButton href="http://sensitivelysimple.com">Sensitively Simple</NavButton>
       </ul>
     </div>
   </nav>
