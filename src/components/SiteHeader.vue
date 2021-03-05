@@ -12,10 +12,6 @@
                     <div>
                         Math, science, and technology tutoring
                     </div>
-                    <div class="invisible md:visible">:</div>
-                    <div> 
-                        Sensitively Simple natural body care
-                    </div>
                 </div>
             </div>
             <div class="flex flex-row justify-center items-center sm:flex-col sm:flex-wrap sm:mt-2 sm:mr-8 sm:h-24">
